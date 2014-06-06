@@ -1,10 +1,17 @@
 class Product < ActiveRecord::Base
-	validates :title, uniqueness: true
-	validates :title, :description, :image_url, presence: true
+	#validates :title, allow_blank: true, length: { minimum: 10 }, message: 'should be 10 characters or more'
+  validates_length_of :title, minimum: 10, allow_blank: true, message: 'should be 10 characters or more'
+  validates :title, presence: true
+  validates :title, uniqueness: true
+  validates :description, :image_url, presence: true
 	validates :price, numericality: { greater_than_or_equal_to: 0.01 }
 	validates :image_url, allow_blank: true,
 	format: {
 		with: %r{\.(gif|jpg|png)\Z}i,
 		message: 'must be a URL for GIF, JPG or PNG image.'
 	}
+
+  def self.latest
+    Product.order(:updated_at).last
+  end
 end
