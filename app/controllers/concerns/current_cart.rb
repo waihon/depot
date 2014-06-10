@@ -10,5 +10,5 @@ module CurrentCart
       #session[:cart_id] = @cart.cart_id
       session[:cart_id] = @cart.id
     end
-  end
+end
   
