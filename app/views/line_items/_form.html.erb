@@ -12,12 +12,17 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :id %><br>
+    <%= f.text_field :id, readonly: true %>
+  </div>
+  
+  <div class="field">
     <%= f.label :product_id %><br>
-    <%= f.text_field :product_id, readonly: true %>
+    <%= f.text_field :product_id, readonly: @readonly %>
   </div>
   <div class="field">
     <%= f.label :cart_id %><br>
-    <%= f.text_field :cart_id, readonly: true %>
+    <%= f.text_field :cart_id, readonly: @readonly %>
   </div>
   <div class="field">
     <%= f.label :quantity %><br>
