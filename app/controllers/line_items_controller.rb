@@ -8,7 +8,8 @@ class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
   def index
-    @line_items = LineItem.all.order('id DESC')
+    @line_items = LineItem.all.order(:id)
+    #@line_items = LineItem.all.order('id DESC')
   end
 
   # GET /line_items/1
@@ -80,6 +81,7 @@ class LineItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
       #params.require(:line_item).permit(:product_id, :cart_id)
-      params.require(:line_item).permit(:product_id)
+      #params.require(:line_item).permit(:product_id)
+      params.require(:line_item).permit(:product_id, :quantity)
     end
 end

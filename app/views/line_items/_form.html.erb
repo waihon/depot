@@ -13,11 +13,15 @@
 
   <div class="field">
     <%= f.label :product_id %><br>
-    <%= f.text_field :product_id %>
+    <%= f.text_field :product_id, readonly: true %>
   </div>
   <div class="field">
     <%= f.label :cart_id %><br>
-    <%= f.text_field :cart_id %>
+    <%= f.text_field :cart_id, readonly: true %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
   </div>
   <div class="actions">
     <%= f.submit %>
