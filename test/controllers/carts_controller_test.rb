@@ -3,6 +3,9 @@ require 'test_helper'
 class CartsControllerTest < ActionController::TestCase
   setup do
     @cart = carts(:one)
+    @new = {
+      id: 1
+    }    
   end
 
   test "should get index" do
@@ -18,7 +21,8 @@ class CartsControllerTest < ActionController::TestCase
 
   test "should create cart" do
     assert_difference('Cart.count') do
-      post :create, cart: {  }
+      #post :create, cart: {  }
+      post :create, cart: @new
     end
 
     assert_redirected_to cart_path(assigns(:cart))
@@ -35,7 +39,8 @@ class CartsControllerTest < ActionController::TestCase
   end
 
   test "should update cart" do
-    patch :update, id: @cart, cart: {  }
+    #patch :update, id: @cart, cart: {  }
+    patch :update, id: @cart, cart: @new
     assert_redirected_to cart_path(assigns(:cart))
   end
 

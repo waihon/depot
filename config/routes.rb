@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'store#index', as: 'store'   # Create a store_path accessor method
+  root 'store#index', as: 'store'   # LESSON: Create a store_path accessor method
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

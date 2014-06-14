@@ -1,15 +1,17 @@
-<h1>Listing carts</h1>
+<h1>Carts Listing</h1>
 
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Cart ID</th>
+      <th colspan="3">Action</th>
     </tr>
   </thead>
 
   <tbody>
     <% @carts.each do |cart| %>
       <tr>
+        <td><%= cart.id %></td>
         <td><%= link_to 'Show', cart %></td>
         <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
         <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>

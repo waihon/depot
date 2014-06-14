@@ -6,6 +6,7 @@ class Product < ActiveRecord::Base
 
   # Ensure that there are no line items referencing this product
   def ensure_not_referenced_by_any_line_item
+    # LESSON: With declaration of "has_many :line_items", line_items below belong to current product
     if line_items.empty?
       return true
     else

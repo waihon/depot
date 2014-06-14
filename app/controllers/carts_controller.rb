@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @carts = Cart.all.order('id DESC')
   end
 
   # GET /carts/1
@@ -73,7 +73,15 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params[:cart]
+      #params[:cart]
+
+      # param is missing or the value is empty: cart
+      #params.require(:cart).permit(:id)
+
+      # param is missig or the value is empty: cart
+      #params.require(:cart)
+
+      params.require(:cart).permit(:cart)
     end
 
     def invalid_cart

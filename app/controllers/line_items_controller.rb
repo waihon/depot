@@ -8,7 +8,7 @@ class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
   def index
-    @line_items = LineItem.all
+    @line_items = LineItem.all.order('id DESC')
   end
 
   # GET /line_items/1
@@ -38,7 +38,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         #format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
-        format.html { redirect_to @line_item.cart }
+        format.html { redirect_to @line_item.cart } # GET carts/1 => show
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
