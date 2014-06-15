@@ -8,8 +8,12 @@ class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
   def index
-    @line_items = LineItem.all.order(:id)
-    #@line_items = LineItem.all.order('id DESC')
+    #@line_items = LineItem.all.order('id')
+
+    # Error: undefined method 'id' for nil:NilClass
+    #@line_items = LineItem.all.order(:id)
+    
+    @line_items = LineItem.all.order('id DESC')
   end
 
   # GET /line_items/1
@@ -25,13 +29,14 @@ class LineItemsController < ApplicationController
 
   # GET /line_items/1/edit
   def edit
-    @readonly = true
+    @readonly = false
   end
 
   # POST /line_items
   # POST /line_items.json
   def create
     #@line_item = LineItem.new(line_item_params)
+    logger.info "Product ID: #{params[:product_id]}"
     product = Product.find(params[:product_id])
     #@line_item = @cart.line_items.build(product: product)
     @line_item = @cart.add_product(product.id)
@@ -84,6 +89,6 @@ class LineItemsController < ApplicationController
     def line_item_params
       #params.require(:line_item).permit(:product_id, :cart_id)
       #params.require(:line_item).permit(:product_id)
-      params.require(:line_item).permit(:product_id, :quantity)
+      params.require(:line_item).permit(:product_id, :cart_id, :quantity)
     end
 end
