@@ -20,6 +20,8 @@
           <%# button_to 'Add to Cart', line_items_path(product_id: product) %>
           <%= button_to 'Add to Cart', line_items_path(product_id: product.id) %>
           <%# button_to 'Add to Cart', line_items_path(product_id: 4) %>
+          <%# button_to 'Add to Cart', line_items_path(:product_id => product.id, :quantity => 1) %>
+          <%# button_to 'Add to Cart', line_items_path(:product_id => product.id) %>
         </div>
       </div>
     <% end %>

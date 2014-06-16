@@ -36,10 +36,21 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     #@line_item = LineItem.new(line_item_params)
-    logger.info "Product ID: #{params[:product_id]}"
-    product = Product.find(params[:product_id])
+    #logger.info "Product ID: #{params[:product_id]}"
+
+    logger.info "Params: #{params}"
+    #product = Product.find(params[:product_id])
+    #if params[:product_id].nil?
+    if params[:product_id].nil?
+      product = Product.find(line_item_params[:product_id])
+      quantity = line_item_params[:quantity].to_i
+    else
+      product = Product.find(params[:product_id])
+      quantity = 1
+    end
+    
     #@line_item = @cart.line_items.build(product: product)
-    @line_item = @cart.add_product(product.id)
+    @line_item = @cart.add_product(product.id, quantity)
 
     session[:counter] = 0
 
@@ -89,6 +100,7 @@ class LineItemsController < ApplicationController
     def line_item_params
       #params.require(:line_item).permit(:product_id, :cart_id)
       #params.require(:line_item).permit(:product_id)
-      params.require(:line_item).permit(:product_id, :cart_id, :quantity)
+      #params.require(:line_item).permit(:product_id, :cart_id, :quantity)
+      params.require(:line_item).permit(:product_id, :quantity)
     end
 end

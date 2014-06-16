@@ -4,8 +4,16 @@
 one:
   product_id: 298486374
   cart_id: 298486374
+  quantity: 3
 
 # id: 298486374
 two:
   product_id: 980190962
   cart_id: 298486374
+  quantity: 2
+
+# id: 113629430, product_id: 207281424
+three:
+  product_id: 298486374
+  cart_id: 980190962
+  quantity: 4

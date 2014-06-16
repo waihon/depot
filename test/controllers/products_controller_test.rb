@@ -64,10 +64,11 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
-      delete :destroy, id: @new
+      delete :destroy, id: @test
     end
 
     assert_redirected_to products_path
+    #assert_redirected_to products_url
   end
 
 end
