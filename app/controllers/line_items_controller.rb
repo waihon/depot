@@ -29,7 +29,7 @@ class LineItemsController < ApplicationController
 
   # GET /line_items/1/edit
   def edit
-    @readonly = false
+    @readonly = true
   end
 
   # POST /line_items
@@ -100,7 +100,7 @@ class LineItemsController < ApplicationController
     def line_item_params
       #params.require(:line_item).permit(:product_id, :cart_id)
       #params.require(:line_item).permit(:product_id)
-      #params.require(:line_item).permit(:product_id, :cart_id, :quantity)
-      params.require(:line_item).permit(:product_id, :quantity)
+      params.require(:line_item).permit(:product_id, :cart_id, :quantity)
+      #params.require(:line_item).permit(:product_id, :quantity)
     end
 end

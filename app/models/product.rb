@@ -10,7 +10,7 @@ class Product < ActiveRecord::Base
     if line_items.empty?
       return true
     else
-      # Associate the error with the base object instead of individual attributes
+      # LESSON: Associate the error with the base object instead of individual attributes
       errors.add(:base, 'Line Items present') 
       return false
     end
@@ -28,6 +28,7 @@ class Product < ActiveRecord::Base
 		message: 'must be a URL for GIF, JPG or PNG image.'
 	}
 
+  # self denotes a class method
   def self.latest
     Product.order(:updated_at).last
   end

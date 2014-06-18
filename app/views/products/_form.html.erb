@@ -20,7 +20,8 @@
     <%= f.text_area :description, rows: 6 %>
   </div>
   <div class="field">
-    <%= f.label :image_url %><br>
+    <!-- LESSON: The 2nd parameter to label helper allows you to set custom text -->
+    <%= f.label :image_url, 'Image URL' %><br>
     <%= f.text_field :image_url %>
   </div>
   <div class="field">

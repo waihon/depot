@@ -11,6 +11,7 @@ class Cart < ActiveRecord::Base
       # LESSON: line_items belong to current cart, by providing product_id to "build", both
       # foreign keys (cart_id and product_id) are available.
       current_item = line_items.build(product_id: product_id)
+      current_item.quantity = quantity
     end
     current_item
   end
